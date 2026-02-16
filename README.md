@@ -33,7 +33,7 @@ DNSTools is a powerful menu bar utility that bridges the gap between local termi
 4.  Build and Run (⌘R).
 
 ### Option 2: Download Release
-1. Go to the [Releases Page](../../releases) and download `DNSToolsMenu-v{#version#}.zip`.
+1. Go to the [Releases Page](../../releases) and download `DNSToolsMenu-v{version #}.zip`.
 2. Unzip and place in /Applications folder.
 *Note: Since this app interacts with system shell commands, you may need to Right-Click > Open the first time you run it.*
 
