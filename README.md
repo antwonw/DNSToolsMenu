@@ -33,11 +33,45 @@ DNSTools is a powerful menu bar utility that bridges the gap between local termi
 4.  Build and Run (⌘R).
 
 ### Option 2: Download Release
-Go to the [Releases Page](../../releases) and download `DNSTools.zip`.
+         Go to the [Releases Page](../../releases) and download `DNSToolsMenu-v{#version#}.zip`.
 *Note: Since this app interacts with system shell commands, you may need to Right-Click > Open the first time you run it.*
 
 ## 📸 Screenshots
-*(Add screenshots of the Main Menu, History Window, and Settings here)*
+
+### 🖥️ Main Interface & Tools
+The app lives in your menu bar, providing instant access to DNS tools and usage stats.
+
+| **Main Menu** | **Tool Selection** | **API Usage Badge** |
+| :---: | :---: | :---: |
+| ![Main Menu](assets/DNS-01-Mac-menu.png) | ![Tools List](assets/DNS-04-Tools.png) | ![Usage Badge](assets/DNS-13-MXtoolbox-Usage.png) |
+| *Clean native macOS interface* | *Quick access to 15+ DNS commands* | *Track API limits at a glance* |
+
+### ⚡️ Dual-Engine Power
+Switch between using your local ISP/System DNS or force a specific resolver to check propagation.
+
+| **Local (System DNS)** | **Local (Custom - 8.8.8.8)** |
+| :---: | :---: |
+| ![System DNS](assets/DNS-02-Local-System.png) | ![Custom Google DNS](assets/DNS-03-Local-Custom-Google.com.png) |
+| *Standard lookup using system settings* | *Forcing a lookup via Google DNS* |
+
+### ⚙️ Advanced Configuration
+Customize your experience with the Hybrid Engine settings.
+
+| **General Settings** | **Resolver Options** | **Custom IP Input** |
+| :---: | :---: | :---: |
+| ![Settings General](assets/DNS-05-Settings1.png) | ![Resolver Dropdown](assets/DNS-09-Settings-Resolver-Options.png) | ![Custom IP](assets/DNS-10-Settings-Resolver-Custom.png) |
+
+| **MXToolbox API Setup** | **API Key Management** | **App Preferences** |
+| :---: | :---: | :---: |
+| ![MX API Setup](assets/DNS-06-Settings-MXToolbox1.png) | ![API Key Input](assets/DNS-07-Settings-MXToolbox2.png) | ![Preferences](assets/DNS-08-Settings2.png) |
+
+### 📜 Search History
+Automatically log every query. Search, filter, and export your history to CSV.
+
+| **History View** | **Filtered Results** |
+| :---: | :---: |
+| ![History Log](assets/DNS-11-History1.png) | ![History Search](assets/DNS-12-History2.png) |
+| *Detailed log of all queries* | *Search by domain or record type* |
 
 ## ⚙️ Configuration
 * **Start at Login:** Toggle auto-launch in Settings.
@@ -47,7 +81,7 @@ Go to the [Releases Page](../../releases) and download `DNSTools.zip`.
 ## 📜 License & Attribution
 This project is free to use and modify for personal or commercial purposes, provided that **attribution is maintained**.
 
-If you use this source code in your own projects, you must include a reference to the original author (Anthony Joel White) and this repository.
+If you use this source code in your own projects, you must include a reference to the original author [Anthony White](https://github.com/antwonw/) and this repository.
 
 * **Icons:** [Tabler Icons](https://tabler.io/icons) (MIT License)
 * **Engine:** Built with SwiftUI & SwiftData.
