@@ -1,32 +1,15 @@
-//
-//  DNSToolsMenuApp.swift
-//  DNSToolsMenu
-//
-//  Created by Anthony on 2/14/26.
-//
-
 import SwiftUI
-import SwiftData
 
 @main
 struct DNSToolsMenuApp: App {
-    var sharedModelContainer: ModelContainer = {
-        let schema = Schema([
-            Item.self,
-        ])
-        let modelConfiguration = ModelConfiguration(schema: schema, isStoredInMemoryOnly: false)
-
-        do {
-            return try ModelContainer(for: schema, configurations: [modelConfiguration])
-        } catch {
-            fatalError("Could not create ModelContainer: \(error)")
-        }
-    }()
+    @NSApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
 
     var body: some Scene {
-        WindowGroup {
-            ContentView()
+        // This is a "dummy" scene. It allows the app to compile and run,
+        // but since we never invoke "Cmd+," or the "Settings" menu item (which doesn't exist),
+        // this window never appears.
+        Settings {
+            EmptyView()
         }
-        .modelContainer(sharedModelContainer)
     }
 }
