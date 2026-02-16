@@ -31,11 +31,6 @@
 			path = DNSToolsMenu;
 			sourceTree = "<group>";
 		};
-		9256991B2F43DC1000B77691 /* assets */ = {
-			isa = PBXFileSystemSynchronizedRootGroup;
-			path = assets;
-			sourceTree = "<group>";
-		};
 		925699292F43E11400B77691 /* docs */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			path = docs;
@@ -58,7 +53,6 @@
 			isa = PBXGroup;
 			children = (
 				925699292F43E11400B77691 /* docs */,
-				9256991B2F43DC1000B77691 /* assets */,
 				925699182F43CE6B00B77691 /* LICENSE */,
 				925699162F43CE4900B77691 /* README.md */,
 				925698EC2F40F9A300B77691 /* DNSToolsMenu */,

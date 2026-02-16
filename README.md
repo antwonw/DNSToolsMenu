@@ -44,7 +44,7 @@ The app lives in your menu bar, providing instant access to DNS tools and usage 
 
 | **Main Menu** | **Tool Selection** | **API Usage Badge** |
 | :---: | :---: | :---: |
-| ![Main Menu](assets/DNS-01-Mac-menu.png) | ![Tools List](assets/DNS-04-Tools.png) | ![Usage Badge](assets/DNS-13-MXtoolbox-Usage.png) |
+| ![Main Menu](docs/assets/DNS-01-Mac-menu.png) | ![Tools List](docs/assets/DNS-04-Tools.png) | ![Usage Badge](docs/assets/DNS-13-MXtoolbox-Usage.png) |
 | *Clean native macOS interface* | *Quick access to 15+ DNS commands* | *Track API limits at a glance* |
 
 ### ⚡️ Dual-Engine Power
@@ -52,7 +52,7 @@ Switch between using your local ISP/System DNS or force a specific resolver to c
 
 | **Local (System DNS)** | **Local (Custom - 8.8.8.8)** |
 | :---: | :---: |
-| ![System DNS](assets/DNS-02-Local-System.png) | ![Custom Google DNS](assets/DNS-03-Local-Custom-Google.com.png) |
+| ![System DNS](docs/assets/DNS-02-Local-System.png) | ![Custom Google DNS](docs/assets/DNS-03-Local-Custom-Google.com.png) |
 | *Standard lookup using system settings* | *Forcing a lookup via Google DNS* |
 
 ### ⚙️ Advanced Configuration
@@ -60,18 +60,18 @@ Customize your experience with the Hybrid Engine settings.
 
 | **General Settings** | **Resolver Options** | **Custom IP Input** |
 | :---: | :---: | :---: |
-| ![Settings General](assets/DNS-05-Settings1.png) | ![Resolver Dropdown](assets/DNS-09-Settings-Resolver-Options.png) | ![Custom IP](assets/DNS-10-Settings-Resolver-Custom.png) |
+| ![Settings General](docs/assets/DNS-05-Settings1.png) | ![Resolver Dropdown](docs/assets/DNS-09-Settings-Resolver-Options.png) | ![Custom IP](docs/assets/DNS-10-Settings-Resolver-Custom.png) |
 
 | **MXToolbox API Setup** | **API Key Management** | **App Preferences** |
 | :---: | :---: | :---: |
-| ![MX API Setup](assets/DNS-06-Settings-MXToolbox1.png) | ![API Key Input](assets/DNS-07-Settings-MXToolbox2.png) | ![Preferences](assets/DNS-08-Settings2.png) |
+| ![MX API Setup](assets/DNS-06-Settings-MXToolbox1.png) | ![API Key Input](docs/assets/DNS-07-Settings-MXToolbox2.png) | ![Preferences](docs/assets/DNS-08-Settings2.png) |
 
 ### 📜 Search History
 Automatically log every query. Search, filter, and export your history to CSV.
 
 | **History View** | **Filtered Results** |
 | :---: | :---: |
-| ![History Log](assets/DNS-11-History1.png) | ![History Search](assets/DNS-12-History2.png) |
+| ![History Log](docs/assets/DNS-11-History1.png) | ![History Search](docs/assets/DNS-12-History2.png) |
 | *Detailed log of all queries* | *Search by domain or record type* |
 
 ## ⚙️ Configuration
