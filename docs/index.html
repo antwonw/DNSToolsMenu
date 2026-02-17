@@ -1,57 +1,131 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+    <meta name="theme-color" content="#1e1e1e" media="(prefers-color-scheme: dark)">
+
     <title>DNSTools for macOS - Hybrid Network Analysis</title>
-    <meta name="description" content="The ultimate hybrid DNS analysis utility for Mac. Switch seamlessly between local native tools and cloud-based API analysis.">
+    <meta name="title" content="DNSTools for macOS - Hybrid Network Analysis">
+    <meta name="description" content="The ultimate DNS utility for Mac. Bridge the gap between raw terminal commands and a refined graphical interface with native local tools and MXToolbox API integration.">
+    <meta name="keywords" content="dns, macos, dig, whois, mxtoolbox, network tools, swiftui, sysadmin, ping, traceroute, menu bar app">
+    <meta name="author" content="Anthony Joel White">
+
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://dnstools.nw.coffee/">
+    <meta property="og:title" content="DNSTools for macOS">
+    <meta property="og:description" content="Bridge the gap between raw terminal commands and a refined graphical interface. Featuring dual-engine analysis and SwiftData history.">
+    <meta property="og:image" content="https://dnstools.nw.coffee/assets/DNS-01-Mac-menu.png">
+
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://dnstools.nw.coffee/">
+    <meta property="twitter:title" content="DNSTools for macOS">
+    <meta property="twitter:description" content="Bridge the gap between raw terminal commands and a refined graphical interface.">
+    <meta property="twitter:image" content="https://dnstools.nw.coffee/assets/DNS-01-Mac-menu.png">
+
     <link rel="stylesheet" href="style.css">
-    <link rel="icon" type="image/png" href="assets/DNS-01-Mac-menu.png">
+    
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22 fill=%22none%22 stroke=%22currentColor%22 stroke-width=%222%22 stroke-linecap=%22round%22 stroke-linejoin=%22round%22><path stroke=%22none%22 d=%22M0 0h24v24H0z%22 fill=%22none%22/><path d=%22M3 12a9 9 0 1 0 18 0a9 9 0 0 0 -18 0%22 /><path d=%22M3.6 9h16.8%22 /><path d=%22M3.6 15h16.8%22 /><path d=%22M11.5 3a17 17 0 0 0 0 18%22 /><path d=%22M12.5 3a17 17 0 0 1 0 18%22 /></svg>">
 </head>
 <body>
 
     <nav>
         <div class="nav-content">
-            <div class="logo">DNSTools <span class="version">v2.1</span></div>
+            <div class="logo">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M3 12a9 9 0 1 0 18 0a9 9 0 0 0 -18 0" /><path d="M3.6 9h16.8" /><path d="M3.6 15h16.8" /><path d="M11.5 3a17 17 0 0 0 0 18" /><path d="M12.5 3a17 17 0 0 1 0 18" /></svg>
+                DNSTools
+            </div>
             <div class="nav-links">
                 <a href="#features">Features</a>
                 <a href="https://github.com/antwonw/DNSToolsMenu" target="_blank">GitHub</a>
+                <button id="theme-toggle" aria-label="Toggle Dark Mode">
+                    <svg class="sun-icon" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="4"></circle><path d="M3 12h1m8-9v1m8 8h1m-9 8v1M5.6 5.6l.7.7m12.1-.7l-.7.7m0 12.1l.7.7m-12.1-.7l-.7.7"></path></svg>
+                    <svg class="moon-icon" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+                </button>
                 <a href="https://github.com/antwonw/DNSToolsMenu/releases/latest" class="download-btn">Download</a>
             </div>
         </div>
     </nav>
 
+    <div class="macos-container">
+        <div class="macos-menubar">
+            <div class="menubar-left">
+                <svg class="apple-logo" viewBox="0 0 14 17" fill="currentColor">
+                    <path d="M11.8 4.7C11.7 2.4 13.5 1.2 13.6 1.1c-0.1 0-1.1-1.1-3.6-1.1c-1.8 0-3.5 1.1-4.1 1.1S3.1 0 1.6 0C-0.7 0-2.1 3.2 0.8 7.3c1.3 1.9 3.2 3.9 5.3 3.9c1.6 0 2.2-1.1 4.2-1.1s2.5 1.1 4.2 1.1c1.7 0 2.8-1.5 3.9-3c0.4-0.6 1.1-1.8 1.1-1.9C19.4 6.3 16.8 5.7 16.7 3.3c-0.1-2 1.6-2.9 1.7-2.9C17.6 0.1 16.4 0 15.6 0c-1.3 0-2.4 0.7-3.1 1.5C11.9 2.1 11.7 3.1 11.8 4.7z M9.6 2.4c0.7-0.8 1.1-1.9 1-3c-0.9 0.1-2.1 0.6-2.7 1.4C7.2 1.5 6.8 2.7 7 3.7C8 3.8 9 3.1 9.6 2.4z"/>
+                </svg>
+                <span class="app-name">Finder</span>
+                <span>File</span>
+                <span>Edit</span>
+                <span>View</span>
+                <span>Go</span>
+                <span>Window</span>
+                <span>Help</span>
+            </div>
+            <div class="menubar-right">
+                <div class="menu-item active-app-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M3 12a9 9 0 1 0 18 0a9 9 0 0 0 -18 0" /><path d="M3.6 9h16.8" /><path d="M3.6 15h16.8" /><path d="M11.5 3a17 17 0 0 0 0 18" /><path d="M12.5 3a17 17 0 0 1 0 18" /></svg>
+                    <div class="app-dropdown">
+                        <div class="app-header">
+                            <span>DNSTools</span>
+                            <span class="badge">LOCAL</span>
+                        </div>
+                        <div class="app-input-row">
+                            <span class="command-label">DNS</span>
+                            <div class="fake-input" id="typewriter"></div>
+                            <div class="go-btn">→</div>
+                        </div>
+                        <div class="app-results" id="results-area"></div>
+                        <div class="app-footer">
+                            <span>History</span>
+                            <span>Quit</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="menu-item">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20l-9-9c5-5 14-5 19 0l-9 9"/></svg>
+                </div>
+                <div class="menu-item">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="6" width="20" height="5" rx="2"/><rect x="2" y="14" width="20" height="5" rx="2"/><circle cx="7" cy="8.5" r="1.5" fill="currentColor"/><circle cx="17" cy="16.5" r="1.5" fill="currentColor"/></svg>
+                </div>
+                <div class="menu-item clock" id="clock">Mon Feb 17 9:41 AM</div>
+            </div>
+        </div>
+    </div>
+
     <header class="hero">
         <div class="hero-content">
             <h1>Network clarity.<br>Instantly.</h1>
-            <p class="subtitle">The first hybrid DNS utility for macOS. Bridge the gap between local terminal commands and cloud-based API analysis.</p>
+            <p class="subtitle">Bridge the gap between raw terminal commands and a refined graphical interface.</p>
             <div class="cta-group">
                 <a href="https://github.com/antwonw/DNSToolsMenu/releases/latest" class="primary-btn">Download for macOS</a>
                 <span class="compatibility">Requires macOS 14+</span>
+                <div class="install-note">
+                    <p>After downloading, run this command to allow execution:</p>
+                    <code>xattr -dr com.apple.quarantine /Applications/DNSTools.app</code>
+                </div>
             </div>
-        </div>
-        <div class="hero-image-container">
-            <img src="assets/DNS-01-Mac-menu.png" alt="DNSTools Interface" class="hero-img">
         </div>
     </header>
 
     <section class="dual-engine" id="features">
         <div class="section-header">
             <h2>Two Engines. One Tool.</h2>
-            <p>Switch seamlessly between privacy-focused local lookups and deep cloud analysis.</p>
+            <p>Seamlessly switch between native performance and API insights.</p>
         </div>
         <div class="grid-2">
             <div class="card">
                 <div class="card-icon">Terminal</div>
                 <h3>Local Native Mode</h3>
-                <p>Runs local `dig`, `ping`, and `trace` commands directly on your machine. Zero latency. Completely private.</p>
-                <img src="assets/DNS-02-Local-System.png" alt="Local Mode">
+                <p>Runs local <code class="cmd">dig</code>, <code class="cmd">ping</code>, and <code class="cmd">trace</code> commands directly on your machine. Zero latency. Completely private.</p>
+                <img src="assets/DNS-02-Local-System-light.png" alt="Local Mode" class="theme-img">
             </div>
             <div class="card">
                 <div class="card-icon">Cloud</div>
-                <h3>MXToolbox API Mode</h3>
-                <p>Unlocks advanced blacklist monitoring, deep health checks, and standardized reporting via the cloud.</p>
-                <img src="assets/DNS-13-MXtoolbox-Usage.png" alt="Cloud Mode">
+                <h3>MXToolbox Integration</h3>
+                <p>Unlocks advanced server health checks and standardized reporting via the cloud API.</p>
+                <img src="assets/DNS-13-MXtoolbox-Usage-light.png" alt="Cloud Mode" class="theme-img">
             </div>
         </div>
     </section>
@@ -69,7 +143,7 @@
                 </ul>
             </div>
             <div class="image-content">
-                <img src="assets/DNS-09-Settings-Resolver-Options.png" alt="Resolver Options" class="rounded-shadow">
+                <img src="assets/DNS-09-Settings-Resolver-Options-light.png" alt="Resolver Options" class="rounded-shadow theme-img">
             </div>
         </div>
     </section>
@@ -78,7 +152,7 @@
         <div class="container">
             <h2>Never lose a query.</h2>
             <p>Automatic logging of every search with advanced filtering.</p>
-            <img src="assets/DNS-11-History1.png" alt="History Window" class="full-width-img">
+            <img src="assets/DNS-11-History1-light.png" alt="History Window" class="full-width-img theme-img">
         </div>
     </section>
 
@@ -92,5 +166,6 @@
         </div>
     </footer>
 
+    <script src="script.js"></script>
 </body>
 </html>

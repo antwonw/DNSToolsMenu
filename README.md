@@ -1,16 +1,16 @@
 # DNSTools for macOS
 
-**The ultimate hybrid DNS analysis utility for Mac.**
+**The ultimate DNS analysis utility for Mac.**
 *Fast, Native, and Privacy-Focused.*
 
-![Swift](https://img.shields.io/badge/Swift-5.9-orange?style=flat-square) ![Platform](https://img.shields.io/badge/Platform-macOS-lightgrey?style=flat-square) ![License](https://img.shields.io/badge/License-Attribution-blue?style=flat-square)
+![Swift](https://img.shields.io/badge/Swift-5.9-orange?style=flat-square) ![Platform](https://img.shields.io/badge/Platform-macOS-lightgrey?style=flat-square) ![License](https://img.shields.io/badge/License-MIT-blue?style=flat-square)
 
 ## 🚀 Overview
-DNSTools is a powerful menu bar utility that bridges the gap between local terminal commands and cloud-based API analysis. Designed for network engineers, sysadmins, and web developers who need instant answers without context switching.
+**DNSTools** bridges the gap between raw terminal network commands and a refined graphical interface. Designed for network engineers, sysadmins, and web developers who need instant answers without the command line context switching.
 
 **Dual Engine Technology:**
-1.  **Local Native Mode:** Runs local `dig`, `ping`, `trace`, and `whois` commands directly on your machine. Zero latency, unlimited usage, completely private.
-2.  **MXToolbox API Mode:** Seamlessly integrates with the MXToolbox API to provide advanced blacklist monitoring, deep health checks, and standardized reporting.
+1.  **Local Native Mode:** Runs local `dig`, `ping`, `trace`, and `whois` commands directly on your machine. Zero latency, unlimited usage, and completely private.
+2.  **MXToolbox API Mode:** Seamlessly integrates with the MXToolbox API to provide standardized reporting and server health analysis.
 
 ## ✨ Key Features
 * **Menu Bar Access:** Always one click away. Instant visibility into network health.
@@ -24,18 +24,23 @@ DNSTools is a powerful menu bar utility that bridges the gap between local termi
     * **Trace Route:** Visual hop-by-hop analysis.
     * **SSL/Headers:** Quick HTTP status and header checks.
 
-## 🛠 Installation
+## 🛠 Installation & Setup
 
 ### Option 1: Build from Source
 1.  Clone this repository.
 2.  Open `DNSToolsMenu.xcodeproj` in Xcode 15+.
-3.  Disable "App Sandbox" in *Signing & Capabilities* (Required for local shell commands).
+3.  **Important:** Disable "App Sandbox" in *Signing & Capabilities* (Required for local shell commands).
 4.  Build and Run (⌘R).
 
 ### Option 2: Download Release
 1. Go to the [Releases Page](../../releases) and download `DNSToolsMenu-v{version #}.zip`.
-2. Unzip and place in /Applications folder.
-*Note: Since this app interacts with system shell commands, you may need to Right-Click > Open the first time you run it.*
+2. Unzip and drag `DNSToolsMenu.app` to your **Applications** folder.
+3.  **Important:** Because this app is unsigned and runs system commands, you must remove the Apple quarantine flag. Open Terminal and run:
+    ```
+    xattr -dr com.apple.quarantine /Applications/DNSToolsMenu.app
+    ```
+4.  Open the app.
+*Note: You may need to Right-Click > Open the first time you run it.*
 
 ## 📸 Screenshots
 
@@ -80,9 +85,9 @@ Automatically log every query. Search, filter, and export your history to CSV.
 * **Custom DNS:** Route local `dig` requests through a specific IP address to test split-horizon DNS or internal servers.
 
 ## 📜 License & Attribution
-This project is free to use and modify for personal or commercial purposes, provided that **attribution is maintained**.
+MIT License. Copyright (c) 2026 Anthony White. This project is free to use and modify for personal or commercial purposes, provided that **attribution is maintained**.
 
-If you use this source code in your own projects, you must include a reference to the original author [Anthony White](https://github.com/antwonw/) and this repository.
+If you use this source code in your own projects, you must include a reference to the original author [Anthony White](https://github.com/antwonw/) and this [repository](https://github.com/antwonw/DNSToolsMenu).
 
 * **Icons:** [Tabler Icons](https://tabler.io/icons) (MIT License)
 * **Engine:** Built with SwiftUI & SwiftData.
