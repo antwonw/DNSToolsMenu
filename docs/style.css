@@ -7,8 +7,9 @@
     --menu-bg: rgba(255, 255, 255, 0.85);
     --menu-text: #000;
     --card-bg: #fff;
-    --code-bg: #f0f0f0;
+    --code-bg: #f5f5f7;
     --border-color: rgba(0,0,0,0.1);
+    --code-text: #1d1d1f;
 }
 
 [data-theme="dark"] {
@@ -22,6 +23,7 @@
     --card-bg: #1c1c1e;
     --code-bg: #2c2c2e;
     --border-color: rgba(255,255,255,0.15);
+    --code-text: #fff;
 }
 
 * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -49,6 +51,7 @@ nav {
 .nav-links { display: flex; align-items: center; gap: 24px; }
 .nav-links a { text-decoration: none; color: var(--text-secondary); font-size: 12px; transition: color 0.2s; }
 .nav-links a:hover { color: var(--accent-blue); }
+.icon-link { display: flex; align-items: center; gap: 6px; }
 .download-btn { background: var(--accent-blue); color: white !important; padding: 4px 12px; border-radius: 12px; }
 
 /* --- Dark Mode Toggle --- */
@@ -57,18 +60,77 @@ nav {
 [data-theme="dark"] .sun-icon { display: block; }
 [data-theme="dark"] .moon-icon { display: none; }
 
+/* --- Hero --- */
+.hero { text-align: center; padding: 120px 20px 40px; position: relative; }
+.hero h1 { font-size: 56px; line-height: 1.1; font-weight: 700; margin-bottom: 16px; letter-spacing: -1px; }
+.subtitle { font-size: 24px; color: var(--text-secondary); max-width: 600px; margin: 0 auto; }
+.primary-btn { background: var(--accent-blue); color: white; text-decoration: none; padding: 14px 28px; border-radius: 30px; font-size: 17px; display: inline-block; transition: transform 0.2s; margin-bottom: 12px; }
+.primary-btn:hover { transform: scale(1.02); }
+.compatibility { display: block; font-size: 12px; color: var(--text-secondary); margin-bottom: 30px; }
+
+/* --- Install Note & Copy Button --- */
+.install-note { margin-top: 10px; font-size: 13px; color: var(--text-secondary); display: flex; flex-direction: column; align-items: center; }
+.install-note p { margin-bottom: 8px; }
+
+.code-copy-wrapper {
+    background: var(--code-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 6px 6px 6px 12px;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    position: relative;
+    max-width: 100%;
+}
+.code-copy-wrapper code {
+    font-family: monospace;
+    font-size: 12px;
+    color: var(--code-text);
+    overflow-x: auto;
+    white-space: nowrap;
+}
+.copy-btn {
+    background: var(--bg-color);
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    cursor: pointer;
+    padding: 4px 6px;
+    color: var(--text-secondary);
+    display: flex;
+    align-items: center;
+    transition: all 0.2s;
+}
+.copy-btn:hover { color: var(--accent-blue); border-color: var(--accent-blue); }
+.copy-tooltip {
+    position: absolute;
+    right: -60px;
+    background: var(--text-main);
+    color: var(--bg-color);
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 11px;
+    opacity: 0;
+    transition: opacity 0.3s;
+    pointer-events: none;
+}
+.copy-tooltip.show { opacity: 1; }
+
 /* --- macOS Menu Bar Demo --- */
 .macos-container {
-    padding-top: 80px;
+    margin-top: 60px;
+    margin-bottom: 320px; /* Increased to prevents overlap with buttons */
     display: flex;
     justify-content: center;
-    background: var(--bg-color); /* Matches page */
+    position: relative;
+    z-index: 10;
 }
+
 .macos-menubar {
-    width: 90%; max-width: 900px;
-    height: 32px; /* Standard Mac height */
+    width: 90%;
+    max-width: 600px; /* Made shorter/narrower */
+    height: 32px;
     background: var(--menu-bg);
-    border-radius: 6px 6px 0 0; /* Only round top if attached to screen, but for demo we round all or mimic desktop */
     border-radius: 8px;
     display: flex;
     justify-content: space-between;
@@ -81,31 +143,24 @@ nav {
     position: relative;
     border: 1px solid var(--border-color);
 }
+
 .menubar-left { display: flex; gap: 20px; align-items: center; }
 .menubar-right { display: flex; gap: 20px; align-items: center; }
-.apple-logo { width: 14px; height: 14px; opacity: 0.9; }
+.apple-logo { width: 14px; height: 14px; opacity: 0.9; padding-bottom: 2px;}
 .app-name { font-weight: 700; }
 .menu-item { cursor: default; position: relative; display: flex; align-items: center; }
 
 /* --- Animated Dropdown --- */
 .active-app-icon { color: var(--accent-blue); }
 .app-dropdown {
-    position: absolute;
-    top: 28px; right: -80px;
-    width: 320px;
-    background: var(--menu-bg);
-    backdrop-filter: blur(20px);
-    border-radius: 10px;
-    box-shadow: 0 10px 40px rgba(0,0,0,0.2);
-    border: 1px solid var(--border-color);
-    padding: 12px;
-    display: flex; /* Changed from none to flex for animation */
-    flex-direction: column;
-    gap: 10px;
-    opacity: 0;
-    transform: translateY(-10px);
-    pointer-events: none;
+    position: absolute; top: 28px; right: -80px; width: 320px;
+    background: var(--menu-bg); backdrop-filter: blur(20px);
+    border-radius: 10px; box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+    border: 1px solid var(--border-color); padding: 12px;
+    display: flex; flex-direction: column; gap: 10px;
+    opacity: 0; transform: translateY(-10px); pointer-events: none;
     animation: dropdownPop 8s infinite;
+    text-align: left; /* Ensure all content inside is left aligned */
 }
 
 @keyframes dropdownPop {
@@ -116,24 +171,34 @@ nav {
 
 .app-header { display: flex; justify-content: space-between; font-size: 12px; font-weight: 600; margin-bottom: 4px; }
 .badge { background: #34c759; color: white; padding: 2px 6px; border-radius: 4px; font-size: 10px; }
-.app-input-row { display: flex; align-items: center; gap: 8px; background: var(--code-bg); padding: 6px; border-radius: 6px; border: 1px solid var(--border-color); }
-.fake-input { flex-grow: 1; font-family: monospace; font-size: 12px; min-height: 18px; color: var(--text-main); }
-.fake-input::after { content: '|'; animation: blink 1s infinite; }
+
+.app-input-row {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--code-bg);
+    padding: 6px;
+    border-radius: 6px;
+    border: 1px solid var(--border-color);
+}
+
+.fake-input {
+    flex-grow: 1;
+    font-family: monospace;
+    font-size: 12px;
+    min-height: 18px;
+    color: var(--text-main);
+    text-align: left; /* Explicitly force left alignment */
+    display: flex;    /* Ensures vertical center alignment */
+    align-items: center;
+}
+
+.fake-input::after { content: '|'; animation: blink 1s infinite; margin-left: 1px; }
 @keyframes blink { 50% { opacity: 0; } }
 
 .app-results { font-family: monospace; font-size: 11px; color: var(--text-secondary); min-height: 0px; overflow: hidden; }
 .result-line { padding: 2px 0; border-bottom: 1px solid var(--border-color); }
 .app-footer { display: flex; justify-content: space-between; margin-top: 8px; font-size: 11px; color: var(--text-secondary); border-top: 1px solid var(--border-color); padding-top: 8px; }
-
-/* --- Hero --- */
-.hero { text-align: center; padding: 60px 20px; }
-.hero h1 { font-size: 56px; line-height: 1.1; font-weight: 700; margin-bottom: 16px; letter-spacing: -1px; }
-.subtitle { font-size: 24px; color: var(--text-secondary); max-width: 600px; margin: 0 auto 40px; }
-.primary-btn { background: var(--accent-blue); color: white; text-decoration: none; padding: 14px 28px; border-radius: 30px; font-size: 17px; display: inline-block; transition: transform 0.2s; }
-.primary-btn:hover { transform: scale(1.02); }
-.install-note { margin-top: 20px; font-size: 13px; color: var(--text-secondary); }
-.install-note code { display: block; margin-top: 8px; background: var(--code-bg); padding: 8px; border-radius: 6px; font-family: monospace; user-select: all; color: var(--text-main); }
-.cmd { background: var(--code-bg); padding: 2px 6px; border-radius: 4px; font-family: monospace; font-size: 0.9em; color: var(--accent-blue); }
 
 /* --- Content Sections --- */
 section { padding: 80px 20px; }
@@ -153,7 +218,25 @@ section { padding: 80px 20px; }
 .feature-list { list-style: none; margin-top: 20px; }
 .feature-list li { font-size: 18px; margin-bottom: 12px; color: var(--text-secondary); }
 .rounded-shadow { width: 100%; border-radius: 12px; box-shadow: 0 20px 40px rgba(0,0,0,0.15); border: 1px solid var(--border-color); }
-.full-width-img { width: 100%; border-radius: 12px; box-shadow: 0 20px 40px rgba(0,0,0,0.15); margin-top: 40px; border: 1px solid var(--border-color); }
+
+/* --- History Section --- */
+.history {
+    background: var(--bg-secondary);
+    text-align: center;
+}
+.container {
+    max-width: 980px;
+    margin: 0 auto;
+}
+.full-width-img {
+    width: 100%;
+    border-radius: 12px;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+    margin-top: 40px;
+    border: 1px solid var(--border-color);
+}
+
+.cmd { background: var(--code-bg); padding: 2px 6px; border-radius: 4px; font-family: monospace; font-size: 0.9em; color: var(--accent-blue); }
 
 /* Footer */
 footer { background: var(--bg-secondary); padding: 40px 0; border-top: 1px solid var(--border-color); font-size: 12px; color: var(--text-secondary); }
@@ -163,6 +246,6 @@ footer { background: var(--bg-secondary); padding: 40px 0; border-top: 1px solid
 @media (max-width: 768px) {
     .grid-2, .grid-split { grid-template-columns: 1fr; }
     .hero h1 { font-size: 40px; }
-    .macos-menubar { display: none; } /* Hide complicated animation on mobile */
+    .macos-menubar { display: none; }
     .macos-container { display: none; }
 }

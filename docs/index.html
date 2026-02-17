@@ -6,8 +6,8 @@
     <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
     <meta name="theme-color" content="#1e1e1e" media="(prefers-color-scheme: dark)">
 
-    <title>DNSTools for macOS - Hybrid Network Analysis</title>
-    <meta name="title" content="DNSTools for macOS - Hybrid Network Analysis">
+    <title>DNSTools for macOS</title>
+    <meta name="title" content="DNSTools for macOS">
     <meta name="description" content="The ultimate DNS utility for Mac. Bridge the gap between raw terminal commands and a refined graphical interface with native local tools and MXToolbox API integration.">
     <meta name="keywords" content="dns, macos, dig, whois, mxtoolbox, network tools, swiftui, sysadmin, ping, traceroute, menu bar app">
     <meta name="author" content="Anthony Joel White">
@@ -38,7 +38,10 @@
             </div>
             <div class="nav-links">
                 <a href="#features">Features</a>
-                <a href="https://github.com/antwonw/DNSToolsMenu" target="_blank">GitHub</a>
+                <a href="https://github.com/antwonw/DNSToolsMenu" target="_blank" class="icon-link">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-github" viewBox="0 0 16 16"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8"/></svg>
+                    GitHub
+                </a>
                 <button id="theme-toggle" aria-label="Toggle Dark Mode">
                     <svg class="sun-icon" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="4"></circle><path d="M3 12h1m8-9v1m8 8h1m-9 8v1M5.6 5.6l.7.7m12.1-.7l-.7.7m0 12.1l.7.7m-12.1-.7l-.7.7"></path></svg>
                     <svg class="moon-icon" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
@@ -48,62 +51,63 @@
         </div>
     </nav>
 
-    <div class="macos-container">
-        <div class="macos-menubar">
-            <div class="menubar-left">
-                <svg class="apple-logo" viewBox="0 0 14 17" fill="currentColor">
-                    <path d="M11.8 4.7C11.7 2.4 13.5 1.2 13.6 1.1c-0.1 0-1.1-1.1-3.6-1.1c-1.8 0-3.5 1.1-4.1 1.1S3.1 0 1.6 0C-0.7 0-2.1 3.2 0.8 7.3c1.3 1.9 3.2 3.9 5.3 3.9c1.6 0 2.2-1.1 4.2-1.1s2.5 1.1 4.2 1.1c1.7 0 2.8-1.5 3.9-3c0.4-0.6 1.1-1.8 1.1-1.9C19.4 6.3 16.8 5.7 16.7 3.3c-0.1-2 1.6-2.9 1.7-2.9C17.6 0.1 16.4 0 15.6 0c-1.3 0-2.4 0.7-3.1 1.5C11.9 2.1 11.7 3.1 11.8 4.7z M9.6 2.4c0.7-0.8 1.1-1.9 1-3c-0.9 0.1-2.1 0.6-2.7 1.4C7.2 1.5 6.8 2.7 7 3.7C8 3.8 9 3.1 9.6 2.4z"/>
-                </svg>
-                <span class="app-name">Finder</span>
-                <span>File</span>
-                <span>Edit</span>
-                <span>View</span>
-                <span>Go</span>
-                <span>Window</span>
-                <span>Help</span>
-            </div>
-            <div class="menubar-right">
-                <div class="menu-item active-app-icon">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M3 12a9 9 0 1 0 18 0a9 9 0 0 0 -18 0" /><path d="M3.6 9h16.8" /><path d="M3.6 15h16.8" /><path d="M11.5 3a17 17 0 0 0 0 18" /><path d="M12.5 3a17 17 0 0 1 0 18" /></svg>
-                    <div class="app-dropdown">
-                        <div class="app-header">
-                            <span>DNSTools</span>
-                            <span class="badge">LOCAL</span>
-                        </div>
-                        <div class="app-input-row">
-                            <span class="command-label">DNS</span>
-                            <div class="fake-input" id="typewriter"></div>
-                            <div class="go-btn">→</div>
-                        </div>
-                        <div class="app-results" id="results-area"></div>
-                        <div class="app-footer">
-                            <span>History</span>
-                            <span>Quit</span>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="menu-item">
-                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20l-9-9c5-5 14-5 19 0l-9 9"/></svg>
-                </div>
-                <div class="menu-item">
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="6" width="20" height="5" rx="2"/><rect x="2" y="14" width="20" height="5" rx="2"/><circle cx="7" cy="8.5" r="1.5" fill="currentColor"/><circle cx="17" cy="16.5" r="1.5" fill="currentColor"/></svg>
-                </div>
-                <div class="menu-item clock" id="clock">Mon Feb 17 9:41 AM</div>
-            </div>
-        </div>
-    </div>
-
     <header class="hero">
         <div class="hero-content">
             <h1>Network clarity.<br>Instantly.</h1>
-            <p class="subtitle">Bridge the gap between raw terminal commands and a refined graphical interface.</p>
+            <p class="subtitle">Bridge the gap between running terminal network lookup commands and a graphical interface.</p>
+            
+            <div class="macos-container">
+                <div class="macos-menubar">
+                    <div class="menubar-left">
+                        <svg class="apple-logo" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-apple" viewBox="0 0 16 16">
+                            <path d="M11.182.008C11.148-.03 9.923.023 8.857 1.18c-1.066 1.156-.902 2.482-.878 2.516s1.52.087 2.475-1.258.762-2.391.728-2.43m3.314 11.733c-.048-.096-2.325-1.234-2.113-3.422s1.675-2.789 1.698-2.854-.597-.79-1.254-1.157a3.7 3.7 0 0 0-1.563-.434c-.108-.003-.483-.095-1.254.116-.508.139-1.653.589-1.968.607-.316.018-1.256-.522-2.267-.665-.647-.125-1.333.131-1.824.328-.49.196-1.422.754-2.074 2.237-.652 1.482-.311 3.83-.067 4.56s.625 1.924 1.273 2.796c.576.984 1.34 1.667 1.659 1.899s1.219.386 1.843.067c.502-.308 1.408-.485 1.766-.472.357.013 1.061.154 1.782.539.571.197 1.111.115 1.652-.105.541-.221 1.324-1.059 2.238-2.758q.52-1.185.473-1.282"/>
+                        </svg>
+                        </div>
+                    <div class="menubar-right">
+                        <div class="menu-item active-app-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M3 12a9 9 0 1 0 18 0a9 9 0 0 0 -18 0" /><path d="M3.6 9h16.8" /><path d="M3.6 15h16.8" /><path d="M11.5 3a17 17 0 0 0 0 18" /><path d="M12.5 3a17 17 0 0 1 0 18" /></svg>
+                            <div class="app-dropdown">
+                                <div class="app-header">
+                                    <span>DNSTools</span>
+                                    <span class="badge">LOCAL</span>
+                                </div>
+                                <div class="app-input-row">
+                                    <span class="command-label">DNS</span>
+                                    <div class="fake-input" id="typewriter"></div>
+                                    <div class="go-btn">→</div>
+                                </div>
+                                <div class="app-results" id="results-area"></div>
+                                <div class="app-footer">
+                                    <span>History</span>
+                                    <span>Quit</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="menu-item">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20l-9-9c5-5 14-5 19 0l-9 9"/></svg>
+                        </div>
+                        <div class="menu-item">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="6" width="20" height="5" rx="2"/><rect x="2" y="14" width="20" height="5" rx="2"/><circle cx="7" cy="8.5" r="1.5" fill="currentColor"/><circle cx="17" cy="16.5" r="1.5" fill="currentColor"/></svg>
+                        </div>
+                        <div class="menu-item clock" id="clock">Mon Feb 17 9:41 AM</div>
+                    </div>
+                </div>
+            </div>
+
             <div class="cta-group">
                 <a href="https://github.com/antwonw/DNSToolsMenu/releases/latest" class="primary-btn">Download for macOS</a>
                 <span class="compatibility">Requires macOS 14+</span>
+                
                 <div class="install-note">
-                    <p>After downloading, run this command to allow execution:</p>
-                    <code>xattr -dr com.apple.quarantine /Applications/DNSTools.app</code>
+                    <p>After downloading, remove quarantine attribute:</p>
+                    <div class="code-copy-wrapper">
+                        <code id="install-cmd">xattr -dr com.apple.quarantine /Applications/DNSToolsMenu.app</code>
+                        <button class="copy-btn" aria-label="Copy to clipboard">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+                        </button>
+                        <span class="copy-tooltip">Copied!</span>
+                    </div>
                 </div>
             </div>
         </div>
